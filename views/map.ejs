@@ -56,6 +56,9 @@
           <li style="margin-top: 10px;">
             <i class="fas fa-user-plus" style="font-size: 300%;"></i><p style="margin-top: 10px;"><a href="#">회원가입</a></p>
           </li>
+          <li>
+            <button type="button" onclick="javascript:addMarkerLayer();">gogo</button>
+          </li>
         </ul>
       </li>
     </ul>
@@ -104,9 +107,36 @@
    }
   }
 
-  vmap.on('click', function (evt) {
-    alert(evt.coordinate);  
+  vmap.on('click', function (evt){ 
+    addMarkerLayer(evt.coordinate);
   });
+
+  function addMarkerLayer(input) {
+    markerLayer = new vw.ol3.layer.Marker(vmap);
+    vmap.addLayer(markerLayer);
+    addMarker(input);
+}
+
+function addMarker(input) {
+  vw.ol3.markerOption = {
+  x : input[0],
+  y : input[1],
+  epsg : "EPSG:900913",
+  title : '테스트마커2',
+  contents : '테스트마커2 본문내용<br>테스트마커2 본문내용',
+  iconUrl : 'http://map.vworld.kr/images/ol3/marker_blue.png', 
+  text : {
+    offsetX: 0.5, //위치설정
+    offsetY: 20,   //위치설정
+    font: '12px Calibri,sans-serif',
+    fill: {color: '#000'},
+    stroke: {color: '#fff', width: 2},
+    text: '테스트마커2'
+  },
+  attr: {"id":"maker02","name":"속성명2"}  
+  };
+  markerLayer.addMarker(vw.ol3.markerOption);
+}
  </script>
 </body>
 </html>
