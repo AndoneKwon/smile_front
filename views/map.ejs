@@ -6,8 +6,76 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
   <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
-
+<title>side_navigation</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<style>
+    /* 피드창 */
+    #feed {
+        background: #333;
+        width: 400px;
+        height: 100%;
+        top: 0;
+        left: -400px;
+        position: fixed;
+    }
+		/* 사이드바 스타일 */
+		.sidenav {
+			height:100%;
+			width: 0;
+			position: fixed;
+			z-index:1;
+			top: 0;
+			left: 0;
+			background-color: rgb(0,154,200);
+			overflow-x: hidden;
+			transition:0.5s ease-in-out;
+			padding-top: 60px;
+		}
+		.sidenav a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #fff;
+			display: block;
+			transition: 0.2s ease-in-out;
+		}
+		.sidenav a:hover, .offcanvas a:focus {
+			color: #000;
+		}
+		.closebtn {
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px !important;
+			margin-left: 50px;
+		}
+		.openmenu:hover {
+			color:rgb(0,154,200);
+			transition:0.5s ease-in-out;
+		}
+		.openmenu {
+			font-size: 25px;
+			cursor:pointer;
+			transition:0.5s ease-in-out;
+		}
+		.openmenu > i {
+			font-size: 30px;
+		}
+		/* 미디어쿼리 적용 */
+		@media screen and (max-height:450px) {
+			.sidenav {
+				padding-top:15px;
+			}
+			.sidenav a {
+				font-size: 18px;
+			}
+		}
+	</style>
   <style>
+    .mainarticle{
+      display: inline-block;
+      align-content: center;
+    }
     body {
       font-family: 'Jua', sans-serif !important;
     }
@@ -36,6 +104,9 @@
       color: white !important;
       text-decoration: none;
     }
+    article{
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -48,7 +119,7 @@
       <li class="active">
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <i class="fas fa-shoe-prints" style="font-size: 300%;"></i><p style="margin-top: 10px;"><a href="#">피드</a></p>
+            <i class="fas fa-shoe-prints" style="font-size: 300%;"></i><p style="margin-top: 10px;"><a href=# id="feedon">피드</a></p>
           </li>
           <li style="margin-top: 10px;">
             <i class="fas fa-sign-in-alt" style="font-size: 300%;"></i><p style="margin-top: 7px;"><a href="#">로그인</a></p>
@@ -57,12 +128,25 @@
             <i class="fas fa-user-plus" style="font-size: 300%;"></i><p style="margin-top: 10px;"><a href="#">회원가입</a></p>
           </li>
           <li>
-            <button type="button" onclick="javascript:addMarkerLayer();">gogo</button>
+            <button type="button">gogo</button>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
+  
+  <aside id="feed">
+    <article style="align-content: center;">
+      <div class="mainarticle">
+        <img src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg" width="150" height="100">
+      </div>
+    </article>
+    <ul>
+      <li><img src="img1.jpg" width="150" height="100"></li>
+      <li><img src="img2.jpg" width="150" height="100"></li>
+      <li><img src="img3.jpg" width="150" height="100"></li>
+    </ul>
+  </aside>
 
   <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
   <script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=290FB31C-CF30-3B8B-AB6E-99AC09251DBD"></script>
@@ -138,5 +222,24 @@ function addMarker(input) {
   markerLayer.addMarker(vw.ol3.markerOption);
 }
  </script>
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script type="text/javascript">
+    $(function(){
+      var duration = 300;
+
+      var $side_feed = $("#feed");
+      var $sidebar = $("#sidebar")
+		  var $sidebt = $sidebar.find('#feedon').on('click', function(){
+			$side_feed.toggleClass('open');
+
+			if($side_feed.hasClass('open')) {
+				$side_feed.stop(true).animate({left:'100px'}, duration);
+			}else{
+				$side_feed.stop(true).animate({left:'-400px'}, duration);
+			};
+		});
+    });
+  </script>
 </body>
 </html>
