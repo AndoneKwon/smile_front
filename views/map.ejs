@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<style>
     /* 피드창 */
+    div .head {
+      display: inline-block;
+      margin-top: 10px;
+    }
     #feed {
         background: #333;
         width: 400px;
@@ -72,9 +76,12 @@
 		}
 	</style>
   <style>
+    .out{
+      text-align: center;
+    }
     .mainarticle{
       display: inline-block;
-      align-content: center;
+      margin: 0 auto;
     }
     body {
       font-family: 'Jua', sans-serif !important;
@@ -106,6 +113,10 @@
     }
     article{
       display: block;
+      width: 100%;
+    }
+    aside{
+      margin : 0 auto;
     }
   </style>
 </head>
@@ -134,19 +145,18 @@
       </li>
     </ul>
   </nav>
-  
-  <aside id="feed">
+
+  <!-- feed -->
+  <div class="out" style="overflow:scroll;" id="feed">
+    <div class="head" style="color : #999999; font-size: 50px;" >Feed</div>
     <article style="align-content: center;">
       <div class="mainarticle">
         <img src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg" width="150" height="100">
       </div>
     </article>
     <ul>
-      <li><img src="img1.jpg" width="150" height="100"></li>
-      <li><img src="img2.jpg" width="150" height="100"></li>
-      <li><img src="img3.jpg" width="150" height="100"></li>
     </ul>
-  </aside>
+  </div>
 
   <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
   <script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=290FB31C-CF30-3B8B-AB6E-99AC09251DBD"></script>
