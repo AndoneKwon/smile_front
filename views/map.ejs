@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	<style>
     body {
@@ -149,14 +150,14 @@
     <ul class="list-unstyled" style="margin-top: 30px;">
       <li class="active">
         <ul class="list-unstyled">
-          <li>
-            <span id="feed-on"><i class="fas fa-shoe-prints" style="font-size: 300%;"></i><p style="margin-top: 10px; font-size: 120%;">피드</p></span>
+          <li id="feed-on">
+            <i class="fas fa-shoe-prints" style="font-size: 300%;"></i><p style="margin-top: 10px; font-size: 120%;">피드</p>
           </li>
-          <li style="margin-top: 10px;">
-            <span id="login-on"><i class="fas fa-sign-in-alt" style="font-size: 300%;"></i><p style="margin-top: 7px; font-size: 120%;">로그인</p></span>
+          <li id="login-on" style="margin-top: 10px;">
+            <i class="fas fa-sign-in-alt" style="font-size: 300%;"></i><p style="margin-top: 7px; font-size: 120%;">로그인</p>
           </li>
-          <li style="margin-top: 10px;">
-            <span id="signup-on"><i class="fas fa-user-plus" style="font-size: 300%;"></i><p style="margin-top: 10px; font-size: 120%;">회원가입</p></span>
+          <li id="signup-on" style="margin-top: 10px;">
+            <i class="fas fa-user-plus" style="font-size: 300%;"></i><p style="margin-top: 10px; font-size: 120%;">회원가입</p>
           </li>
         </ul>
       </li>
@@ -165,7 +166,7 @@
 
   <!-- Feed -->
   <div class="out" style="overflow-y:scroll; overflow-x:hidden" id="feed">
-    <div class="head" style="color : #999999; font-size: 50px;" >Feed</div>
+    <div class="head" style="color : #999999; font-size: 50px;">Feed</div>
     <article style="align-content: center;">
       <div class="mainarticle">
         <img src="images/brand.png" width="150">
@@ -202,7 +203,7 @@
 
   <!-- Sign up -->
   <div class="out" style="overflow-y:scroll; overflow-x:hidden" id="signup">
-    <div class="head" style="color : #999999; font-size: 50px;" >Sign up</div>
+    <div class="head" style="color : #999999; font-size: 50px;">Sign up</div>
     <article style="align-content: center;">
       <div class="mainarticle">
         <img src="images/brand.png" width="150">
@@ -295,62 +296,62 @@
       var side_login = $("#login");
       var side_signup = $("#signup");
 
-		  sidebar.find('#feed-on').on('click', function() {
-        side_feed.toggleClass('open');
-
+		  $('#feed-on').on('click', function() {
         if (side_feed.hasClass('open')) {
-          side_feed.stop(true).animate({left:'100px'}, duration);
-        } else {
           side_feed.stop(true).animate({left:'-400px'}, duration);
+          side_feed.removeClass('open');
+        } else {
+          side_feed.stop(true).animate({left:'100px'}, duration);
+          side_feed.addClass('open');
         }
 
         if (side_login.hasClass('open')) {
-          side_login.toggleClass('open');
+          side_login.removeClass('open');
           side_login.stop(true).animate({left:'-400px'}, duration);
         }
 
         if (side_signup.hasClass('open')) {
-          side_signup.toggleClass('open');
+          side_signup.removeClass('open');
           side_signup.stop(true).animate({left:'-400px'}, duration);
         }
       });
       
-      sidebar.find('#login-on').on('click', function() {
-        side_login.toggleClass('open');
-
+      $('#login-on').on('click', function() {
         if (side_login.hasClass('open')) {
-          side_login.stop(true).animate({left:'100px'}, duration);
-        } else {
           side_login.stop(true).animate({left:'-400px'}, duration);
+          side_login.removeClass('open');
+        } else {
+          side_login.stop(true).animate({left:'100px'}, duration);
+          side_login.addClass('open');
         }
 
         if (side_feed.hasClass('open')) {
-          side_feed.toggleClass('open');
+          side_feed.removeClass('open');
           side_feed.stop(true).animate({left:'-400px'}, duration);
         }
 
         if (side_signup.hasClass('open')) {
-          side_signup.toggleClass('open');
+          side_signup.removeClass('open');
           side_signup.stop(true).animate({left:'-400px'}, duration);
         }
       });
 
-      sidebar.find('#signup-on').on('click', function() {
-        side_signup.toggleClass('open');
-
+      $('#signup-on').on('click', function() {
         if (side_signup.hasClass('open')) {
-          side_signup.stop(true).animate({left:'100px'}, duration);
-        } else {
           side_signup.stop(true).animate({left:'-400px'}, duration);
+          side_signup.removeClass('open');
+        } else {
+          side_signup.stop(true).animate({left:'100px'}, duration);
+          side_signup.addClass('open');
         }
 
         if (side_feed.hasClass('open')) {
-          side_feed.toggleClass('open');
+          side_feed.removeClass('open');
           side_feed.stop(true).animate({left:'-400px'}, duration);
         }
 
         if (side_login.hasClass('open')) {
-          side_login.toggleClass('open');
+          side_login.removeClass('open');
           side_login.stop(true).animate({left:'-400px'}, duration);
         }
       });
